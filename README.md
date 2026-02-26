@@ -30,15 +30,4 @@ Design & Architecture (design.md) - ITS architecture + TypeScript interfaces + 1
 Requirements (requirements.md) - Detailed acceptance criteria
 Usecase Diagram (usecase.png)
 
-Prototype Phase Plan (24hr Goal)
-User Query -> Lambda -> Bedrock Claude -> Explanation + Code -> DynamoDB
-Test: "Explain Python loops" -> less than 2s response
-
-AWS Credits Usage
-$100 Credits Perfect For:
-Lambda/API Gateway (free tier covers most)
-Bedrock Claude inference (~$0.01/query)
-S3/DynamoDB storage
-ChromaDB on EC2 (small instance)
-
 Repo: https://github.com/mj200004/StateStack-AIforBharat
