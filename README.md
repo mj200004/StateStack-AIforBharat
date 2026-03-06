@@ -79,24 +79,27 @@ cd frontend
 npm run build
 aws s3 sync dist/ s3://your-bucket-name/
 
-## Project Structure
-text
+##  Project Structure
+
+```
 ai-learning-assistant/
 ├── backend/
-│   ├── handler.js              # Lambda handlers
-│   ├── bedrock-integration.js  # AI integration
-│   ├── dynamodb-helper.js      # DB operations
-│   ├── serverless.yml
+│   ├── handler.js              # Lambda function handlers
+│   ├── bedrock-integration.js  # AWS Bedrock AI integration
+│   ├── dynamodb-helper.js      # Database operations
+│   ├── serverless.yml          # Serverless configuration
 │   └── package.json
 ├── frontend/
 │   ├── src/
-│   │   ├── pages/              # React pages
-│   │   ├── components/
-│   │   ├── utils/
-│   │   └── assets/
+│   │   ├── pages/              # React page components
+│   │   ├── components/         # Reusable components
+│   │   ├── utils/              # Utility functions
+│   │   └── assets/             # Images and static files
 │   ├── package.json
 │   └── vite.config.js
+├── docs/                       # Documentation
 └── README.md
+```
 
 ## Configuration
 ## Environment Variables (backend/.env)
