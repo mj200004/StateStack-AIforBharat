@@ -1,0 +1,110 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables (IMPORTANT: Never commit these!)
+.env
+.env.*
+!.env.example
+
+# Build outputs
+frontend/dist/
+backend/.serverless/
+
+# AWS credentials and config
+.aws/
+aws-exports.js
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Documentation (keep only essential docs)
+*_COMPLETE.md
+*_FIX.md
+*_UPGRADE.md
+*_ENHANCEMENTS.md
+*_FIXES.md
+*_IMPLEMENTATION.md
+*_SUMMARY.md
+*_GUIDE.md
+*_ANALYSIS.md
+*_ROADMAP.md
+STEP*.md
+PHASE*.md
+BACKEND_*.md
+FRONTEND_*.md
+DEBUG_*.md
+LEARNING_PATH_*.md
+LESSON_*.md
+CHAT_*.md
+STRUCTURED_*.md
+INPUT_*.md
+STICKY_*.md
+CONSERVATIVE_*.md
+STRICT_*.md
+TEST_*.md
+FOLLOWUP_*.md
+STORAGE_*.md
+MOBILE_*.md
+CLOUDFRONT_*.md
+DYNAMODB_*.md
+BEDROCK_*.md
+ENABLE_*.md
+CHANGE_*.md
+AWS_INTEGRATION_*.md
+AWS_DEPLOYMENT_*.md
+AWS_SERVICES_*.md
+AWS_FULL_*.md
+SPEC_UPDATE_*.md
+
+# Batch files (deployment scripts with credentials)
+*.bat
+
+# Standalone files
+frontend-standalone.html
+
+# Cleanup and archive
+cleanup-archive.bat
+FILE_CLEANUP_PLAN.md
+CLEANUP_SUMMARY.md
+
+# Test files
+test-*.js
+test-*.bat
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Images (optional - uncomment if you want to exclude)
+# *.png
+# *.jpg
+# *.jpeg
+# *.gif
+
+# Spec files (optional - keep if you want to share project planning)
+.kiro/
+
+# Documentation folder (not needed for GitHub)
+docs/
