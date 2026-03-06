@@ -1,188 +1,330 @@
-## 🤖 AI Learning Assistant
-An interactive web application that helps beginner developers learn JavaScript through AI-powered assistance, code debugging, and structured learning paths.
+# 🤖 AI Learning Assistant
 
-## Features
-AI Chat Assistant: Instant help with programming questions using AWS Bedrock
+An intelligent learning platform powered by AWS Bedrock that helps students learn programming through interactive chat, code debugging, and personalized learning paths.
 
-Code Debugger: AI-powered analysis and fixes for JavaScript code
+##  AWS Hackathon Project
 
-Learning Path: 20 structured lessons on JavaScript fundamentals
+Built for the **AI for Bharat AWS Hackathon** using:
+- **AWS Bedrock** (Amazon Nova Micro) - AI responses
+- **AWS Lambda** - Serverless backend
+- **Amazon API Gateway** - REST API
+- **Amazon DynamoDB** - Data persistence
+- **AWS Amplify** - Frontend hosting
 
-Progress Tracking: XP system and completion badges
+---
 
-User Authentication: Secure login/registration
+##  Features
 
-Cloud-Native: AWS deployment (DynamoDB, Lambda, CloudFront)
+### 1. AI Chat Assistant
+- Ask programming questions
+- Get structured explanations with examples
+- Interactive learning experience
 
-## Live Demo
-Visit the live application: [https://di21r9s7dmq4q.cloudfront.net](https://di21r9s7dmq4q.cloudfront.net)
+### 2. Code Debugger
+- Paste your code for analysis
+- Get detailed error explanations
+- Receive fixed code with learning tips
 
+### 3. Learning Paths
+- Structured programming courses
+- Track your progress
+- Interactive lessons with practice
 
-## Architecture
+### 4. Voice Input
+- Speak your questions
+- Hands-free learning experience
 
-## Frontend
-```
- 1. Framework: React + Vite
+---
 
- 2. Styling: Custom CSS (teal/dark gradient theme)
+##  Quick Start (Local Development)
 
- 3. Deployment: AWS S3 + CloudFront CDN
+### Prerequisites
+- Node.js 18+ installed
+- AWS account with Bedrock access
+- AWS credentials configured
 
-Key Components: Landing page, auth, chat interface, debugger, learning path, lesson viewer
-```
-## Backend
-```
- 1. Runtime: Node.js on AWS Lambda
-
-2. Framework: Serverless Framework
-
- 3. API: AWS API Gateway (REST)
-
- 4. AI: AWS Bedrock (Amazon Nova Micro)
-
- 5. Database: AWS DynamoDB
-
-Key Features: Auth (bcrypt), chat history, progress tracking, code analysis
-```
-
-## Prerequisites
-```
-Node.js 18+ and npm
-
-AWS account with AWS CLI configured
-
-Bedrock access (Amazon Nova Micro model)
-
-## Permissions: DynamoDB, Lambda, API Gateway, S3, CloudFront
-```
-## Quick Start ##
-## 1. Clone & Install
-```
- bash
-git clone <your-repo-url>
+### 1. Clone & Install
+```bash
 cd ai-learning-assistant
 
-cd backend && npm install && cp .env.example .env  # Add AWS credentials
-cd ../frontend && npm install
-```
-## 2. Setup Database
-```
- bash
+# Install backend
 cd backend
-node create-dynamodb-tables.js
-Creates tables: ai-learning-users, ai-learning-chat-history, ai-learning-progress.
+npm install
+
+# Install frontend
+cd ../frontend
+npm install
 ```
-## 3. Deploy Backend
+
+### 2. Configure Environment
+Create `backend/.env`:
+```env
+AWS_ACCESS_KEY_ID=your_key
+AWS_SECRET_ACCESS_KEY=your_secret
+AWS_REGION=us-east-1
+BEDROCK_MODEL_ID=us.amazon.nova-micro-v1:0
 ```
- bash
-npx serverless deploy
-Copy API Gateway URL from output.
-```
-## 4. Configure & Deploy Frontend
-```
- javascript
-// frontend/src/utils/constants.js
-export const API_URL = 'https://your-api-gateway-url.amazonaws.com/dev';
- bash
+
+### 3. Start Servers
+```bash
+# Terminal 1: Start backend
+cd backend
+npm start
+
+# Terminal 2: Start frontend
 cd frontend
-npm run build
-aws s3 sync dist/ s3://your-bucket-name/
+npm run dev
 ```
+
+### 4. Open Application
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:3001
+
+---
+
+##  AWS Deployment
+
+### Step 1: Deploy Backend to Lambda
+```bash
+cd backend
+npm install -g serverless
+serverless deploy
+```
+
+### Step 2: Configure API Gateway
+- Custom domain (optional)
+- API throttling
+- Usage plans
+
+### Step 3: Set up DynamoDB
+- Create users table
+- Create chat history table
+- Create progress table
+
+### Step 4: Deploy Frontend to Amplify
+- Update API URL
+- Deploy to Amplify
+- Configure custom domain
+
+**Detailed Guide**: See `DEPLOYMENT_READY.md`
+
+---
+
+## 📚 Documentation
+
+### Essential Guides
+- **QUICK_START.md** - Local development setup
+- **START_SERVERS.md** - How to run servers
+- **HOW_TO_USE.md** - Application user guide
+- **DEPLOYMENT_READY.md** - AWS deployment overview
+- **STEP1_LAMBDA_DEPLOYMENT.md** - Lambda deployment details
+
+### Archive
+- Old documentation in `docs/archive/`
+- Feature implementation history
+- Previous AWS guides
+
+---
+
 ##  Project Structure
 
 ```
 ai-learning-assistant/
-├── backend/
-│   ├── handler.js              # Lambda function handlers
-│   ├── bedrock-integration.js  # AWS Bedrock AI integration
-│   ├── dynamodb-helper.js      # Database operations
-│   ├── serverless.yml          # Serverless configuration
-│   └── package.json
-├── frontend/
+├── frontend/              # React + Vite application
 │   ├── src/
-│   │   ├── pages/              # React page components
-│   │   ├── components/         # Reusable components
-│   │   ├── utils/              # Utility functions
-│   │   └── assets/             # Images and static files
-│   ├── package.json
-│   └── vite.config.js
-├── docs/                       # Documentation
-└── README.md
+│   │   ├── pages/        # Chat, Debug, Learning Path
+│   │   ├── components/   # Reusable components
+│   │   └── utils/        # Helper functions
+│   └── package.json
+│
+├── backend/               # Express + Lambda functions
+│   ├── handler.js        # Main Lambda handler
+│   ├── bedrock-integration.js  # AWS Bedrock client
+│   ├── serverless.yml    # Serverless config
+│   └── package.json
+│
+├── docs/
+│   └── archive/          # Old documentation
+│
+└── README.md             # This file
 ```
 
-## Configuration
-## Environment Variables (backend/.env)
-## text
-```
+---
+
+##  Tech Stack
+
+### Frontend
+- React 18
+- Vite
+- CSS3 (Custom styling)
+- Web Speech API (Voice input)
+
+### Backend
+- Node.js 18
+- Express.js
+- Serverless Framework
+- AWS SDK v3
+
+### AWS Services
+- **Bedrock** - AI model (Nova Micro)
+- **Lambda** - Serverless compute
+- **API Gateway** - REST API
+- **DynamoDB** - NoSQL database
+- **Amplify** - Frontend hosting
+- **CloudWatch** - Logging & monitoring
+
+---
+
+##  Features in Detail
+
+### Chat Interface
+- Real-time AI responses
+- Structured output (explanation, key points, examples)
+- Message history
+- Voice input support
+- Summarize conversation
+
+### Code Debugger
+- Multi-language support (JavaScript, Python, Java, C++)
+- Syntax error detection
+- Logic error analysis
+- Fixed code generation
+- Learning tips
+
+### Learning Paths
+- Beginner to Advanced tracks
+- Interactive lessons
+- Code practice
+- Progress tracking
+- Achievement system
+
+---
+
+##  Configuration
+
+### Backend Environment Variables
+```env
 AWS_ACCESS_KEY_ID=your_access_key
 AWS_SECRET_ACCESS_KEY=your_secret_key
 AWS_REGION=us-east-1
+BEDROCK_MODEL_ID=us.amazon.nova-micro-v1:0
+DYNAMODB_USERS_TABLE=ai-learning-users
+DYNAMODB_CHAT_TABLE=ai-learning-chat-history
+DYNAMODB_PROGRESS_TABLE=ai-learning-progress
+PORT=3001
+NODE_ENV=development
 ```
-## Bedrock Setup
+
+### Frontend API Configuration
+Update `frontend/src/utils/constants.js`:
+```javascript
+export const API_BASE_URL = 'http://localhost:3001'; // Local
+// export const API_BASE_URL = 'https://your-api-gateway-url'; // Production
 ```
-AWS Bedrock Console → Model Access
 
-Enable amazon.nova-micro-v1:0
+---
+
+##  Testing
+
+### Test Backend Locally
+```bash
+cd backend
+node test-local.js
 ```
-## Learning Path
+
+### Test Bedrock Integration
+```bash
+cd backend
+node test-bedrock.js
 ```
-Variables & Data Types
 
-Operators & Expressions
+### Test API Endpoints
+```bash
+# Health check
+curl http://localhost:3001/health
 
-Conditionals
+# Chat
+curl -X POST http://localhost:3001/chat \
+  -H "Content-Type: application/json" \
+  -d '{"message": "What is a variable?"}'
 
-Loops
-
-Functions
-6-20. Coming soon!
+# Debug
+curl -X POST http://localhost:3001/debug \
+  -H "Content-Type: application/json" \
+  -d '{"code": "let x = 5;", "language": "javascript"}'
 ```
-## Detailed Features
-```
-AI Chat: Natural language Q&A, structured responses, chat history, voice input.
-Code Debugger: Error analysis, fixes, explanations, learning tips.
-Learning Path: Sequential lessons, XP progress, review mode.
-```
-## Security
-```
-IAM roles with least privilege
 
-Bcrypt password hashing
+---
 
-HTTPS via CloudFront
+##  Cost Estimate
 
-Auth validation on API endpoints
+### Development/Testing
+- Lambda: Free tier (1M requests/month)
+- API Gateway: Free tier (1M calls/month)
+- Bedrock: ~$0.01-0.10/day (Nova Micro)
+- DynamoDB: Free tier (25GB storage)
+- **Total**: < $5/month
 
-Never commit credentials
-```
-## Contributing
-Fork repository
+### Production (1000 users)
+- Lambda: ~$5/month
+- API Gateway: ~$3.50/month
+- Bedrock: ~$20-50/month
+- DynamoDB: ~$5/month
+- Amplify: ~$15/month
+- **Total**: ~$50-80/month
 
-Create feature branch
+---
 
-Commit changes
+##  Contributing
 
-Open pull request
+This is a hackathon project. Contributions welcome!
 
-## License
-MIT License
+1. Fork the repository
+2. Create feature branch
+3. Commit changes
+4. Push to branch
+5. Open pull request
 
-## Author
+---
 
-Created as part of an AWS learning project.
+##  License
+
+MIT License - See LICENSE file for details
+
+---
+
+##  Author
+
+Built for AWS Hackathon 2024
+
+---
 
 ##  Acknowledgments
 
-- AWS Bedrock for AI capabilities
-- React and Vite for frontend framework
+- AWS Bedrock team for AI capabilities
 - Serverless Framework for easy deployment
-- AWS Free Tier for hosting
+- React team for amazing frontend framework
+
+---
 
 ##  Support
 
-For issues or questions, please open a GitHub issue.
----
-**Note**: This is an educational project. For production use, implement additional security measures, error handling, and monitoring.
+For issues or questions:
+1. Check documentation in `docs/`
+2. Review `QUICK_START.md`
+3. See `DEPLOYMENT_READY.md` for AWS help
 
-Author
-AWS learning project by [Your Name]
+---
+
+##  Roadmap
+
+- [ ] User authentication (AWS Cognito)
+- [ ] Real-time collaboration
+- [ ] Mobile app (React Native)
+- [ ] Advanced analytics
+- [ ] Gamification features
+- [ ] Multi-language support
+
+---
+
+**Ready to deploy? See `DEPLOYMENT_READY.md` to get started!** 🚀
