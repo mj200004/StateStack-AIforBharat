@@ -294,10 +294,10 @@ MIT License - See LICENSE file for details
 ---
 
 ##  Author
-
-Built for AWS Hackathon 2024
-
----
+```
+## Team StateStack
+Building for AI FOR BHARAT HACKATHON 2026
+```
 
 ##  Acknowledgments
 
@@ -326,5 +326,3 @@ For issues or questions:
 - [ ] Multi-language support
 
 ---
-
-**Ready to deploy? See `DEPLOYMENT_READY.md` to get started!** 🚀
