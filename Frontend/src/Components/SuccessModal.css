@@ -1,0 +1,192 @@
+/* Success Modal Overlay */
+.success-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Success Modal Card */
+.success-modal-card {
+  background: white;
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+  text-align: center;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Success Icon */
+.success-modal-icon {
+  margin-bottom: 1.5rem;
+}
+
+.success-checkmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  border-radius: 50%;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  box-shadow: 0 8px 24px rgba(72, 187, 120, 0.4);
+  animation: scaleIn 0.5s ease 0.2s both;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Success Title */
+.success-modal-title {
+  margin: 0 0 1.5rem 0;
+  color: #1a202c;
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Success Content */
+.success-modal-content {
+  margin-bottom: 2rem;
+}
+
+.success-lesson-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.success-xp-earned {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 0.75rem 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  border: 2px solid #f59e0b;
+}
+
+.xp-icon {
+  font-size: 1.5rem;
+}
+
+.xp-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #92400e;
+}
+
+.success-message {
+  color: #4a5568;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  margin: 1rem 0 0 0;
+}
+
+/* Success Actions */
+.success-modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.success-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 16px;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 180px;
+}
+
+.success-btn.primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.success-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.success-btn.secondary {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.success-btn.secondary:hover {
+  background: #f7fafc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .success-modal-card {
+    padding: 2rem 1.5rem;
+    width: 95%;
+  }
+
+  .success-modal-title {
+    font-size: 1.5rem;
+  }
+
+  .success-lesson-name {
+    font-size: 1.125rem;
+  }
+
+  .xp-amount {
+    font-size: 1.25rem;
+  }
+
+  .success-modal-actions {
+    flex-direction: column;
+  }
+
+  .success-btn {
+    width: 100%;
+  }
+}
