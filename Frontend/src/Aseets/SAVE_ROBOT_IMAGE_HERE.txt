@@ -1,0 +1,18 @@
+INSTRUCTIONS TO ADD ROBOT IMAGES:
+
+You need to save TWO robot images in this folder:
+
+1. robot-logo.png - White robot with cyan glowing eyes and headphones
+   - Used in: PublicLanding.jsx (navbar and footer) - 48px x 48px
+
+2. robot-hello.png - Cyan robot saying "Hello!"
+   - Used in: AuthPage.jsx (Sign In and Sign Up headers) - 50px x 50px with floating animation
+
+IMPORTANT:
+- Save both images in: ai-learning-assistant/frontend/src/assets/
+- Use exact filenames: robot-logo.png and robot-hello.png
+- Once saved, the images will automatically appear in the app!
+
+If you want to use different filenames, update the import statements in:
+- PublicLanding.jsx: import robotLogo from '../assets/robot-logo.png';
+- AuthPage.jsx: import robotHello from '../assets/robot-hello.png';
