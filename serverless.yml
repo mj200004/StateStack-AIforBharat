@@ -1,0 +1,89 @@
+service: ai-learning-assistant-aws-hackathon
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  stage: dev
+  environment:
+    NODE_ENV: production
+    BEDROCK_MODEL_ID: amazon.nova-micro-v1:0
+    DYNAMODB_USERS_TABLE: ai-learning-users
+    DYNAMODB_CHAT_TABLE: ai-learning-chat-history
+    DYNAMODB_PROGRESS_TABLE: ai-learning-progress
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - logs:CreateLogGroup
+        - logs:CreateLogStream
+        - logs:PutLogEvents
+      Resource: "*"
+    - Effect: Allow
+      Action:
+        - bedrock:InvokeModel
+        - bedrock:InvokeModelWithResponseStream
+      Resource: "*"
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: 
+        - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.DYNAMODB_USERS_TABLE}"
+        - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.DYNAMODB_CHAT_TABLE}"
+        - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.DYNAMODB_PROGRESS_TABLE}"
+
+functions:
+  api:
+    handler: handler.handler
+    timeout: 30
+    memorySize: 512
+    description: "AI Learning Assistant - AWS Hackathon Backend"
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
+      - http:
+          path: /
+          method: ANY
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 3001
+    host: 0.0.0.0
+
+# Package configuration
+package:
+  patterns:
+    - '!.git/**'
+    - '!.env'
+    - '!README.md'
+    - '!test-local.js'
+    - '!test-bedrock.js'
+    - '!.serverless/**'
