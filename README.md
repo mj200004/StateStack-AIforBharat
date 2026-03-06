@@ -1,4 +1,4 @@
-## AI Learning Assistant
+## 🤖 AI Learning Assistant
 An interactive web application that helps beginner developers learn JavaScript through AI-powered assistance, code debugging, and structured learning paths.
 
 ## Features
