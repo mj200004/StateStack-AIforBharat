@@ -20,24 +20,24 @@ Visit the live application: [https://di21r9s7dmq4q.cloudfront.net](https://di21r
 
 ## Architecture
 ## Frontend
-## 1. Framework: React + Vite
+ 1. Framework: React + Vite
 
-## 2. Styling: Custom CSS (teal/dark gradient theme)
+ 2. Styling: Custom CSS (teal/dark gradient theme)
 
-## 3. Deployment: AWS S3 + CloudFront CDN
+ 3. Deployment: AWS S3 + CloudFront CDN
 
 Key Components: Landing page, auth, chat interface, debugger, learning path, lesson viewer
 
 ## Backend
-## 1. Runtime: Node.js on AWS Lambda
+ 1. Runtime: Node.js on AWS Lambda
 
-## 2. Framework: Serverless Framework
+2. Framework: Serverless Framework
 
-## 3. API: AWS API Gateway (REST)
+ 3. API: AWS API Gateway (REST)
 
-## 4. AI: AWS Bedrock (Amazon Nova Micro)
+ 4. AI: AWS Bedrock (Amazon Nova Micro)
 
-## 5. Database: AWS DynamoDB
+ 5. Database: AWS DynamoDB
 
 Key Features: Auth (bcrypt), chat history, progress tracking, code analysis
 
@@ -50,9 +50,9 @@ Bedrock access (Amazon Nova Micro model)
 
 ## Permissions: DynamoDB, Lambda, API Gateway, S3, CloudFront
 
-## Quick Start
+## Quick Start ##
 ## 1. Clone & Install
-## bash
+ bash
 git clone <your-repo-url>
 cd ai-learning-assistant
 
@@ -60,28 +60,28 @@ cd backend && npm install && cp .env.example .env  # Add AWS credentials
 cd ../frontend && npm install
 
 ## 2. Setup Database
-## bash
+ bash
 cd backend
 node create-dynamodb-tables.js
 Creates tables: ai-learning-users, ai-learning-chat-history, ai-learning-progress.
 
 ## 3. Deploy Backend
-## bash
+ bash
 npx serverless deploy
 Copy API Gateway URL from output.
 
 ## 4. Configure & Deploy Frontend
-## javascript
+ javascript
 // frontend/src/utils/constants.js
 export const API_URL = 'https://your-api-gateway-url.amazonaws.com/dev';
-## bash
+ bash
 cd frontend
 npm run build
 aws s3 sync dist/ s3://your-bucket-name/
 
 ## Project Structure
-## text
- ai-learning-assistant/
+text
+ai-learning-assistant/
 ├── backend/
 │   ├── handler.js              # Lambda handlers
 │   ├── bedrock-integration.js  # AI integration
