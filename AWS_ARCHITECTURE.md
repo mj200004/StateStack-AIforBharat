@@ -237,8 +237,8 @@ functions:
 - **AI Integration**: Bedrock-ready architecture
 - **Frontend**: React app structure planned
 
-**Next 2 Hours**: Complete frontend and test locally
-**Next 4 Hours**: Deploy to AWS and integrate Bedrock
+ Complete frontend and test locally
+Deploy to AWS and integrate Bedrock
 **Demo Ready**: Full AWS-powered AI learning assistant
 
 ---
