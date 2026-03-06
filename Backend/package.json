@@ -1,0 +1,34 @@
+{
+  "name": "ai-learning-assistant-backend",
+  "version": "1.0.0",
+  "description": "Backend API for AI Learning Assistant - AWS Bedrock Integration",
+  "main": "handler.js",
+  "scripts": {
+    "start": "node handler.js",
+    "dev": "serverless offline",
+    "deploy": "serverless deploy",
+    "test": "node test-local.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.1000.0",
+    "@aws-sdk/client-dynamodb": "^3.1000.0",
+    "@aws-sdk/lib-dynamodb": "^3.1000.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "serverless-http": "^3.2.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "serverless-offline": "^13.3.0"
+  },
+  "keywords": [
+    "ai",
+    "education",
+    "serverless",
+    "aws",
+    "bedrock"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
